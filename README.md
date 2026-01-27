@@ -66,8 +66,8 @@ bench --site yoursite.local install-app dev_tool
 ```
 ---
 ⚙️ Configuration
-Super Editor Settings (Single DocType)
-Field	Description
-Enable Super Editor	Turn feature ON / OFF
-Track Changes	Enable ledger tracking
-Track Changes Limit (Days)	Auto-delete ledger entries after N days
+ - Super Editor Settings (Single DocType)
+ - Field	Description
+ - Enable Super Editor	Turn feature ON / OFF
+ - Track Changes	Enable ledger tracking
+ - Track Changes Limit (Days)	Auto-delete ledger entries after N days
