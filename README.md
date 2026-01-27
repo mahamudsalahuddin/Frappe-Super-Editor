@@ -61,9 +61,10 @@ Unlike raw database edits, Super Editor works **inside Frappe**, respects data s
 
 ```bash
 bench get-app https://github.com/<your-username>/frappe-super-editor
-bench --site yoursite.local install-app dev_tools
+bench --site yoursite.local install-app dev_tool
 
-
+```
+---
 ⚙️ Configuration
 Super Editor Settings (Single DocType)
 Field	Description
