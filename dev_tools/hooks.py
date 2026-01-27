@@ -26,7 +26,9 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/dev_tools/css/dev_tools.css"
-# app_include_js = "/assets/dev_tools/js/dev_tools.js"
+app_include_js = [
+    "/assets/dev_tools/js/super_editor/super_edit.js"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/dev_tools/css/dev_tools.css"
@@ -148,13 +150,13 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"dev_tools.tasks.all"
 # 	],
-# 	"daily": [
-# 		"dev_tools.tasks.daily"
-# 	],
+	"daily": [
+		"dev_tools.api.cleanup_super_edit_ledger"
+	],
 # 	"hourly": [
 # 		"dev_tools.tasks.hourly"
 # 	],
@@ -164,7 +166,7 @@ app_license = "mit"
 # 	"monthly": [
 # 		"dev_tools.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------
