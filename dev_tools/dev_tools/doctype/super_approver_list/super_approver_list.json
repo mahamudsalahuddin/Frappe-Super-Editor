@@ -12,7 +12,7 @@
   {
    "fieldname": "user",
    "fieldtype": "Link",
-   "label": "User",
+   "label": "User List",
    "options": "User"
   }
  ],
@@ -20,7 +20,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-17 12:40:08.858599",
+ "modified": "2026-02-17 16:58:31.082281",
  "modified_by": "Administrator",
  "module": "Dev Tools",
  "name": "Super Approver List",
