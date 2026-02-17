@@ -337,8 +337,8 @@ def get_super_editor_access(user=None):
 
     try:
         is_active = frappe.db.get_value(
-            "Super Editor Settings",
-            "Super Editor Settings",
+            "Super Editor Settings", 
+            None,
             "is_active",
         )
         if not is_active:
@@ -354,7 +354,7 @@ def get_super_editor_access(user=None):
             pluck="user",
         )
         approvers = [u for u in approvers if u]
-        # approvers.append("Administrator")
+        approvers.append("Administrator")
 
         # Return all users only if session user is in the list
         if frappe.session.user in approvers:
