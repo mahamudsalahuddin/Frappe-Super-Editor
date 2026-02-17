@@ -2,13 +2,35 @@
 // Date: 2026-01-21
 // Description: Super Editor – Force edit any field (including child tables)
 
-console.log("Super Edit JS loaded");
-
 $(document).on("app_ready", function () {
+    const user = frappe.session.user;
 
-    // Only allow admin (optional – remove if needed)
-    if (frappe.session.user !== "Administrator") return;
+    // Only allow users with required role
+    if (!frappe.user.has_role("System Manager")) {
+        return;
+    }
 
+    let approver_flag = false;
+    frappe.call({
+        method: "dev_tools.api.get_super_editor_access",
+        args: { user },
+        callback(r) {
+            if (r.message && r.message.length > 0) {
+                r.message.forEach((allowed_user) => {
+                    if (allowed_user === user) {
+                        approver_flag = true;
+                    }
+                });
+            }
+            if (!approver_flag) {
+                return;
+            }
+            enable_super_editor();
+        }
+    });
+});
+
+function enable_super_editor() {
     frappe.db.get_single_value("Super Editor Settings", "is_active")
         .then(enabled => {
             if (!enabled) return;
@@ -24,7 +46,7 @@ $(document).on("app_ready", function () {
                 setTimeout(() => addEditIcons(this), 300);
             };
         });
-});
+}
 
 /* ========================================================= */
 /* ADD ICONS */
@@ -32,6 +54,9 @@ $(document).on("app_ready", function () {
 
 function addEditIcons(frm) {
     if (!frm?.fields_dict) return;
+    if (frm.doc.doctype == "Super Editor Settings"){
+        return;
+    } 
 
     Object.entries(frm.fields_dict).forEach(([fieldname, field]) => {
         if (!field?.$wrapper) return;

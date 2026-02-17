@@ -6,7 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "is_active",
-  "track_changes_limit"
+  "track_changes_limit",
+  "super_approver"
  ],
  "fields": [
   {
@@ -19,13 +20,19 @@
    "fieldname": "track_changes_limit",
    "fieldtype": "Int",
    "label": "Track changes limit"
+  },
+  {
+   "fieldname": "super_approver",
+   "fieldtype": "Table MultiSelect",
+   "label": "Super Approver",
+   "options": "Super Approver List"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-01-22 17:28:37.395466",
+ "modified": "2026-02-17 12:35:23.829483",
  "modified_by": "Administrator",
  "module": "Dev Tools",
  "name": "Super Editor Settings",

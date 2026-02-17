@@ -330,4 +330,35 @@ def cleanup_super_edit_ledger():
     frappe.db.commit()
 
 
+@frappe.whitelist()
+def get_super_editor_access(user=None):
+    """Return all super approver users if session user exists in the list."""
+    frappe.only_for("System Manager")
 
+    try:
+        is_active = frappe.db.get_value(
+            "Super Editor Settings",
+            "Super Editor Settings",
+            "is_active",
+        )
+        if not is_active:
+            return []
+
+        # Get all users from Super Approver List child table (super_approver)
+        approvers = frappe.get_all(
+            "Super Approver List",
+            filters={
+                "parent": "Super Editor Settings",
+                "parenttype": "Super Editor Settings",
+            },
+            pluck="user",
+        )
+        approvers = [u for u in approvers if u]
+        # approvers.append("Administrator")
+
+        # Return all users only if session user is in the list
+        if frappe.session.user in approvers:
+            return approvers
+        return []
+    except Exception:
+        return []
