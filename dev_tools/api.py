@@ -351,7 +351,7 @@ def get_super_editor_access(user=None):
                 "parent": "Super Editor Settings",
                 "parenttype": "Super Editor Settings",
             },
-            pluck="user",
+            pluck="user_list",
         )
         approvers = [u for u in approvers if u]
         approvers.append("Administrator")

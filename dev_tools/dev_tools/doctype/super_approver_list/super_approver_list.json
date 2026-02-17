@@ -6,11 +6,11 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "user"
+  "user_list"
  ],
  "fields": [
   {
-   "fieldname": "user",
+   "fieldname": "user_list",
    "fieldtype": "Link",
    "label": "User List",
    "options": "User"
@@ -20,7 +20,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-17 16:58:31.082281",
+ "modified": "2026-02-17 17:38:22.272612",
  "modified_by": "Administrator",
  "module": "Dev Tools",
  "name": "Super Approver List",
