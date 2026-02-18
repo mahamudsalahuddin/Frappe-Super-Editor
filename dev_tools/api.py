@@ -354,9 +354,7 @@ def get_super_editor_access(user=None):
             pluck="user_list",
         )
         approvers = [u for u in approvers if u]
-        approvers.append("Administrator")
-
-        # Return all users only if session user is in the list
+        approvers.append("Administrator")        # Return all users only if session user is in the list
         if frappe.session.user in approvers:
             return approvers
         return []

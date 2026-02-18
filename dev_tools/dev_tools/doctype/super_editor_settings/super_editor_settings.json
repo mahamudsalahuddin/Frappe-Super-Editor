@@ -7,7 +7,7 @@
  "field_order": [
   "is_active",
   "track_changes_limit",
-  "super_approver"
+  "user_list"
  ],
  "fields": [
   {
@@ -22,8 +22,8 @@
    "label": "Track changes limit"
   },
   {
-   "fieldname": "super_approver",
-   "fieldtype": "Table MultiSelect",
+   "fieldname": "user_list",
+   "fieldtype": "Table",
    "label": "Super Approver",
    "options": "Super Approver List"
   }
@@ -32,7 +32,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-02-17 17:00:03.640674",
+ "modified": "2026-02-18 16:09:13.033459",
  "modified_by": "Administrator",
  "module": "Dev Tools",
  "name": "Super Editor Settings",
