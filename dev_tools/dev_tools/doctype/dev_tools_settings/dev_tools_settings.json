@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-16 16:43:54.956274",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "allow_data_exporter",
+  "export_doctypes"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "Enable Export Fixture buttons on form and list views for the DocTypes listed below. Requires developer mode.",
+   "fieldname": "allow_data_exporter",
+   "fieldtype": "Check",
+   "label": "Allow Data Exporter"
+  },
+  {
+   "depends_on": "eval:doc.allow_data_exporter",
+   "description": "DocTypes that show an Export Fixture action. Set the target app for each row.",
+   "fieldname": "export_doctypes",
+   "fieldtype": "Table",
+   "label": "Export DocTypes",
+   "mandatory_depends_on": "eval:doc.allow_data_exporter",
+   "options": "Data Exporter DocType"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-16 16:55:00.000000",
+ "modified_by": "Administrator",
+ "module": "Dev Tools",
+ "name": "Dev Tools Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

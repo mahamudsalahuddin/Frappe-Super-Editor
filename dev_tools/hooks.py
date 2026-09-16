@@ -27,7 +27,8 @@ app_license = "mit"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/dev_tools/css/dev_tools.css"
 app_include_js = [
-    "/assets/dev_tools/js/super_editor/super_edit.js"
+	"/assets/dev_tools/js/super_editor/super_edit.js",
+	"/assets/dev_tools/js/data_exporter/data_exporter.js",
 ]
 
 # include js, css files in header of web template
@@ -139,13 +140,13 @@ app_include_js = [
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Role": {
+		"after_insert": "dev_tools.utils.auto_export_fixtures.auto_export_role",
+		"on_update": "dev_tools.utils.auto_export_fixtures.auto_export_role",
+		"on_trash": "dev_tools.utils.auto_export_fixtures.auto_export_role",
+	},
+}
 
 # Scheduled Tasks
 # ---------------
